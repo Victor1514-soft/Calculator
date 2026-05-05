@@ -1,0 +1,27 @@
+# ninja log v7
+16	366	7996148866858147	MiCalculadora_autogen/timestamp	196b906448cffe92
+16	366	7996148866858147	MiCalculadora_autogen/mocs_compilation.cpp	196b906448cffe92
+16	366	7996148866858147	C:/Users/gamer/Downloads/Calculator/build/MiCalculadora_autogen/timestamp	196b906448cffe92
+16	366	7996148866858147	C:/Users/gamer/Downloads/Calculator/build/MiCalculadora_autogen/mocs_compilation.cpp	196b906448cffe92
+374	528	7996148867757644	CMakeFiles/MiCalculadora.dir/MiCalculadora_autogen/mocs_compilation.cpp.obj	247502cdbd61a01
+388	1503	7996148867897502	CMakeFiles/MiCalculadora.dir/CalculatorEngine.cpp.obj	dd8cf632f528a190
+381	4739	7996148867822152	CMakeFiles/MiCalculadora.dir/main.cpp.obj	5be3e06e2a82c224
+4744	5054	7996148911452088	MiCalculadora.exe	866b6cc805bfa81
+69	1794	7996504915294687	Calculator_autogen/timestamp	efaf036461d5ca7
+69	1794	7996504915294687	Calculator_autogen/mocs_compilation.cpp	efaf036461d5ca7
+69	1794	7996504915294687	C:/Users/gamer/Downloads/Calculator/build/Calculator_autogen/timestamp	efaf036461d5ca7
+69	1794	7996504915294687	C:/Users/gamer/Downloads/Calculator/build/Calculator_autogen/mocs_compilation.cpp	efaf036461d5ca7
+1798	8627	7996504916711061	CMakeFiles/Calculator.dir/Calculator_autogen/mocs_compilation.cpp.obj	280f2de0058f830
+1823	3133	7996504916959536	CMakeFiles/Calculator.dir/CalculatorEngine.cpp.obj	bbd5c17d583da5
+1811	8733	7996504916841992	CMakeFiles/Calculator.dir/main.cpp.obj	47530c56939e6973
+8734	9181	7996504986061378	Calculator.exe	211918aca8bedc33
+1836	8657	7996504917087925	CMakeFiles/Calculator.dir/Calculator.cpp.obj	787f445d0b0d4cf8
+31	781	7996540763337081	Calculator_autogen/timestamp	efaf036461d5ca7
+31	781	7996540763337081	Calculator_autogen/mocs_compilation.cpp	efaf036461d5ca7
+31	781	7996540763337081	C:/Users/gamer/Downloads/Calculator/build/Calculator_autogen/timestamp	efaf036461d5ca7
+31	781	7996540763337081	C:/Users/gamer/Downloads/Calculator/build/Calculator_autogen/mocs_compilation.cpp	efaf036461d5ca7
+792	1596	7996540764016728	CMakeFiles/Calculator.dir/src/CalculatorEngine.cpp.obj	6690302c9555ce1f
+782	3856	7996540763914940	CMakeFiles/Calculator.dir/Calculator_autogen/mocs_compilation.cpp.obj	280f2de0058f830
+787	3884	7996540763974952	CMakeFiles/Calculator.dir/src/main.cpp.obj	768e1e9d37239d1f
+797	3893	7996540764067211	CMakeFiles/Calculator.dir/src/Calculator.cpp.obj	82b07b8a4a8c4024
+3893	4489	7996540795031523	Calculator.exe	65a468ac5f904aca

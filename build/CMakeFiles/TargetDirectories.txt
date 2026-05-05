@@ -1,0 +1,5 @@
+C:/Users/gamer/Downloads/Calculator/build/CMakeFiles/Calculator.dir
+C:/Users/gamer/Downloads/Calculator/build/CMakeFiles/edit_cache.dir
+C:/Users/gamer/Downloads/Calculator/build/CMakeFiles/rebuild_cache.dir
+C:/Users/gamer/Downloads/Calculator/build/CMakeFiles/Calculator_autogen_timestamp_deps.dir
+C:/Users/gamer/Downloads/Calculator/build/CMakeFiles/Calculator_autogen.dir
