@@ -2,7 +2,6 @@
 *.exe
 *.a
 *.out
-*.txt
 build/
 .vscode/
-
+CMakeFiles/
