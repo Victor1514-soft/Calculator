@@ -1,5 +1,5 @@
 #include "Calculator.h"
-Calculator::Calculator(){
+Calculator::Calculator(QWidget *parent){
 
     //init
     for(int i = 0; i < 10 ; ++i){
@@ -14,10 +14,9 @@ Calculator::Calculator(){
     ClearButton  = new QPushButton("C",this);
     NegativeSingButton = new QPushButton("-y",this);
     DecimalButton = new QPushButton(".",this);
-    this->result = 0;
-    this->History = std::stack<double>();
+    SquareRootButton = new QPushButton("sqrt()",this);
 
-    QGridLayout *grid = new QGridLayout(this);
+    QGridLayout *grid = new QGridLayout();
 
     grid->addWidget(NumberButtons[7],0,0);
     grid->addWidget(NumberButtons[8],0,1);
@@ -38,13 +37,18 @@ Calculator::Calculator(){
     grid->addWidget(OperationButtons[4],3,4);
     grid->addWidget(ClearButton,2,4);
     grid->addWidget(DeleteButton,1,4);
+    grid->addWidget(SquareRootButton,0,4);
+    grid->setSpacing(0);
 
+    QVBoxLayout *Box = new QVBoxLayout(this);
+    QLineEdit *display = new QLineEdit;
 
+    display->setText("Hello");
+    display->setReadOnly(true);
+    display->setFixedHeight(75);
+    
+    Box->addWidget(display);
+    Box->addLayout(grid);
+    Box->setContentsMargins(20,20,20,0);
+    Box->setSpacing(0);
 }  
-
-double Calculator::getResult(){
-    return this->result;
-}
-void Calculator::setResult(double result){
-    this->result = result;
-}

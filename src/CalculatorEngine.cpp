@@ -14,3 +14,6 @@ double CalculatorEngine::Division(double x, double y){
     }
     return x/y;
 }
+double CalculatorEngine::SquareRoot(double x){
+    return sqrt(x);
+}
