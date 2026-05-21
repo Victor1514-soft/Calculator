@@ -2,6 +2,7 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QVBoxLayout>
+#include <QLineEdit>
 #include "CalculatorEngine.h"
 #include <stack>
 class Calculator:public QWidget{
@@ -15,13 +16,9 @@ QPushButton *DeleteButton;
 QPushButton *ClearButton;
 QPushButton*NegativeSingButton;
 QPushButton*DecimalButton;
-double result;
-std::stack<double>History;
+QPushButton*SquareRootButton;
 
 public:
 
-Calculator();
-double getResult();
-void setResult(double result);
-
+explicit Calculator(QWidget *parent = nullptr); //following Qt recomendation
 };
