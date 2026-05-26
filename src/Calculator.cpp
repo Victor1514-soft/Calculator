@@ -1,4 +1,5 @@
 #include "Calculator.h"
+
 Calculator::Calculator(QWidget *parent){
 
     //init
@@ -56,9 +57,9 @@ Calculator::Calculator(QWidget *parent){
     QObject::connect(NumberButtons[j],&QPushButton::clicked,this,&number_slot);
     }
 
-    /*for(int k = 0; k < 5; k++){
+    for(int k = 0; k < 5; k++){
     QObject::connect(OperationButtons[k],&QPushButton::clicked,this,&operation_slot);
-    }*/
+    }
 
     QObject::connect(ClearButton,&QPushButton::clicked,this,&clear_button_slot);
     QObject::connect(DeleteButton,&QPushButton::clicked,this,&delete_button_slot);
@@ -72,7 +73,49 @@ void Calculator::number_slot(){
 }
 /*To be implemented*/
 void Calculator::operation_slot(){
-
+    QPushButton* button = qobject_cast<QPushButton*>(QObject::sender());
+    if(display->text().isEmpty()){
+        display->setText(display->text());
+    }
+    else if(display->text().at(display->text().length() - 1) == "+" || display->text().at(display->text().length() - 1) == "-" || display->text().at(display->text().length() - 1) == "x" || display->text().at(display->text().length() - 1) == "/" ){
+        display->setText(display->text());
+    }
+    else if(display->text().contains(button->text()) && display->text().at(display->text().length() - 1).isDigit()){
+        display->setText(display->text());
+    } 
+    else if(button->text()!="="){
+        display->setText(display->text()  + button->text());
+    }
+    else{
+        QString txt = display->text();
+        QString symbol;
+        QString number1;
+        QString number2;
+        QString result;
+        int pos;
+        for(int w = 0; w < txt.length(); ++w){
+            if(txt[w] == "+" || txt[w] == "-" || txt[w] == "x" || txt[w] == "/"){
+                symbol = txt[w];
+                pos = w;
+                break;
+            }
+        }
+        number1 = txt.mid(0,pos);
+        number2 = txt.mid(pos + 1,txt.length());
+        if(symbol == "+"){
+            result = QString::number(Sum(number1.toDouble(),number2.toDouble()));
+        }
+        else if(symbol == "-"){
+            result = QString::number(Substract(number1.toDouble(),number2.toDouble()));
+        }
+        else if(symbol == "x"){
+            result = QString::number(Multiplicate(number1.toDouble(),number2.toDouble()));
+        }
+        else if(symbol == "/"){
+            result = (number2.toDouble() == 0)? "Division by cero is not defined" : QString::number(Division(number1.toDouble(),number2.toDouble()));
+        }
+        display->setText(result);
+    }
 }
 
 void Calculator::decimal_button_slot(){
@@ -122,7 +165,7 @@ double Calculator::Multiplicate(double x, double y){
     return x*y;
 }
 double Calculator::Division(double x, double y){
-    if(y == 0.0){
+    if(y == 0){
         throw std::invalid_argument("Division by cero is not defined");
     }
     return x/y;

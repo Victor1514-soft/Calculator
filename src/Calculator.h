@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <cmath>
 #include <string>
+#include <iostream>
 
 class Calculator:public QWidget{
 Q_OBJECT
