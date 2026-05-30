@@ -65,6 +65,7 @@ Calculator::Calculator(QWidget *parent){
     QObject::connect(DeleteButton,&QPushButton::clicked,this,&delete_button_slot);
     QObject::connect(NegativeSingButton,&QPushButton::clicked,this,&sign_button_slot);
     QObject::connect(DecimalButton,&QPushButton::clicked,this,&decimal_button_slot);
+    QObject::connect(SquareRootButton,&QPushButton::clicked,this,&squareroot_slot);
 }  
 
 void Calculator::number_slot(){
@@ -149,7 +150,32 @@ void Calculator::sign_button_slot(){
 }
 /*To be implemented*/
 void Calculator::squareroot_slot(){
-
+    if(display->text().isEmpty()){
+        display->setText(display->text());
+    }
+    if(display->text().contains('+') || display->text().contains('-') || display->text().contains('x') || display->text().contains('/')){
+        int pos = 0;
+       for(int i = 0; i < display->text().length();++i){
+            if(display->text().at(i) == '+' || display->text().at(i) == '-' || display->text().at(i) == 'x' || display->text().at(i) == '/'){
+                pos = i;
+                break;
+            }
+       }
+       QString number2 = display->text().mid(pos + 1,display->text().length());
+       if(number2.isEmpty()){
+        display->setText(display->text());
+       }
+       else{
+         QString result = (number2.toDouble()) < 0? "You cannot take squareroot of a negative number" : QString::number(sqrt(number2.toDouble()));
+         display->setText(display->text().mid(0,pos + 1) + result);
+       }
+    }
+    else{
+        QString number = display->text();
+        QString result = QString::number(sqrt(number.toDouble()));
+        display->setText(result);
+    }
+    
 }
 void Calculator::clear_button_slot(){
     display->clear();
@@ -169,7 +195,4 @@ double Calculator::Division(double x, double y){
         throw std::invalid_argument("Division by cero is not defined");
     }
     return x/y;
-}
-double Calculator::SquareRoot(double x){
-    return sqrt(x);
 }

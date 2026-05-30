@@ -31,7 +31,6 @@ public:
  double Substract(double x,double y);
  double Multiplicate(double x,double y);
  double Division(double x,double y);
- double SquareRoot(double x);
 
 public slots:
 
