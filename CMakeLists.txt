@@ -20,3 +20,5 @@ add_executable(Calculator
 
 # to link libraries
 target_link_libraries(Calculator PRIVATE Qt6::Widgets)
+
+configure_file(src/Calculator.qss ${CMAKE_BINARY_DIR}/Calculator.qss COPYONLY)

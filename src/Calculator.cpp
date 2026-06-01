@@ -42,15 +42,18 @@ Calculator::Calculator(QWidget *parent){
     buttons_grid->setSpacing(0);
 
     this->box = new QVBoxLayout(this);
-    this->display= new QLineEdit;
+    this->box->setObjectName("box");
+    this->display = new QLineEdit;
+    this->display->setObjectName("display");
 
     display->setReadOnly(true);
-    display->setFixedHeight(75);
+    display->setFixedHeight(150);
     
     box->addWidget(display);
     box->addLayout(buttons_grid);
     box->setContentsMargins(20,20,20,0);
-    box->setSpacing(0);
+    box->setSpacing(20);
+    box->setAlignment(Qt::AlignCenter);
 
     //Buttons Functionalities
     for(int j = 0; j < 10; j++){
@@ -66,6 +69,7 @@ Calculator::Calculator(QWidget *parent){
     QObject::connect(NegativeSingButton,&QPushButton::clicked,this,&sign_button_slot);
     QObject::connect(DecimalButton,&QPushButton::clicked,this,&decimal_button_slot);
     QObject::connect(SquareRootButton,&QPushButton::clicked,this,&squareroot_slot);
+    this->setObjectName("Calculator");
 }  
 
 void Calculator::number_slot(){
