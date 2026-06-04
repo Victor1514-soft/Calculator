@@ -1,0 +1,30 @@
+QWidget#Calculator{
+    background-color : #000000 ;
+}
+QWidget#Calculator QLineEdit#display{
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: white;
+    padding : 16px ;
+    selection-background-color: blue;
+    font-size : 25px;
+}
+
+QWidget#Calculator QPushButton{
+    border: 1px #A5A5A5;
+    border-radius: 15px;
+    color: #FFFFFF;
+    background-color: #333333;
+    min-width: 50px;
+    min-height: 50px
+
+}
+QWidget#Calculator QPushButton:pressed{
+    background-color : #A5A5A5;
+}
+
+QWidget#Calculator QLineEdit#display{
+    color: #FFFFFF;
+    background-color:#000000;
+    border: #FFFFFF;
+}

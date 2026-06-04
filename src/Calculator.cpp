@@ -39,38 +39,48 @@ Calculator::Calculator(QWidget *parent){
     buttons_grid->addWidget(ClearButton,2,4);
     buttons_grid->addWidget(DeleteButton,1,4);
     buttons_grid->addWidget(SquareRootButton,0,4);
-    buttons_grid->setSpacing(0);
+    buttons_grid->setSpacing(5);
 
     this->box = new QVBoxLayout(this);
-    this->display= new QLineEdit;
+    this->box->setObjectName("box");
+    this->display = new QLineEdit;
+    this->display->setObjectName("display");
 
     display->setReadOnly(true);
-    display->setFixedHeight(75);
+    display->setFixedHeight(150);
     
     box->addWidget(display);
     box->addLayout(buttons_grid);
     box->setContentsMargins(20,20,20,0);
-    box->setSpacing(0);
+    box->setSpacing(20);
+    box->setAlignment(Qt::AlignCenter);
 
     //Buttons Functionalities
     for(int j = 0; j < 10; j++){
-    QObject::connect(NumberButtons[j],&QPushButton::clicked,this,&number_slot);
+    QObject::connect(NumberButtons[j],&QPushButton::clicked,this,&Calculator::number_slot);
     }
 
     for(int k = 0; k < 5; k++){
-    QObject::connect(OperationButtons[k],&QPushButton::clicked,this,&operation_slot);
+    QObject::connect(OperationButtons[k],&QPushButton::clicked,this,&Calculator::operation_slot);
     }
 
-    QObject::connect(ClearButton,&QPushButton::clicked,this,&clear_button_slot);
-    QObject::connect(DeleteButton,&QPushButton::clicked,this,&delete_button_slot);
-    QObject::connect(NegativeSingButton,&QPushButton::clicked,this,&sign_button_slot);
-    QObject::connect(DecimalButton,&QPushButton::clicked,this,&decimal_button_slot);
-    QObject::connect(SquareRootButton,&QPushButton::clicked,this,&squareroot_slot);
+    QObject::connect(ClearButton,&QPushButton::clicked,this,&Calculator::clear_button_slot);
+    QObject::connect(DeleteButton,&QPushButton::clicked,this,&Calculator::delete_button_slot);
+    QObject::connect(NegativeSingButton,&QPushButton::clicked,this,&Calculator::sign_button_slot);
+    QObject::connect(DecimalButton,&QPushButton::clicked,this,&Calculator::decimal_button_slot);
+    QObject::connect(SquareRootButton,&QPushButton::clicked,this,&Calculator::squareroot_slot);
+    this->setObjectName("Calculator");
+    this->display->setText("0");
 }  
 
 void Calculator::number_slot(){
   QPushButton*number = qobject_cast<QPushButton*>(QObject::sender());
+  if(display->text().size() == 1 && display->text().at(0) == '0' ){
+    display->setText(number->text());
+  }
+  else{
   display->setText(display->text() + number->text());
+  }
 }
 /*To be implemented*/
 void Calculator::operation_slot(){
@@ -78,7 +88,7 @@ void Calculator::operation_slot(){
     if(display->text().isEmpty()){
         display->setText(display->text());
     }
-    else if(display->text().at(display->text().length() - 1) == "+" || display->text().at(display->text().length() - 1) == "-" || display->text().at(display->text().length() - 1) == "x" || display->text().at(display->text().length() - 1) == "/" ){
+    else if(display->text().at(display->text().length() - 1) == '+' || display->text().at(display->text().length() - 1) == '-' || display->text().at(display->text().length() - 1) == 'x' || display->text().at(display->text().length() - 1) == '/' ){
         display->setText(display->text());
     }
     else if(display->text().contains(button->text()) && display->text().at(display->text().length() - 1).isDigit()){
@@ -95,7 +105,7 @@ void Calculator::operation_slot(){
         QString result;
         int pos;
         for(int w = 0; w < txt.length(); ++w){
-            if(txt[w] == "+" || txt[w] == "-" || txt[w] == "x" || txt[w] == "/"){
+            if(txt[w] == '+' || txt[w] == '-' || txt[w] == 'x' || txt[w] == '/'){
                 symbol = txt[w];
                 pos = w;
                 break;
@@ -115,15 +125,19 @@ void Calculator::operation_slot(){
         else if(symbol == "/"){
             result = (number2.toDouble() == 0)? "Division by cero is not defined" : QString::number(Division(number1.toDouble(),number2.toDouble()));
         }
-        display->setText(result);
+        if(result.isEmpty()){
+            display->setText("0");
+        }
+        else{
+            display->setText(result);
+        }
+        
     }
 }
 
 void Calculator::decimal_button_slot(){
-     if(display->text().isEmpty()){
-        display->clear();
-    }
-    else if(display->text().contains('.')){
+    
+    if(display->text().contains('.')){
         display->setText(display->text());
     }
     else{
@@ -133,15 +147,20 @@ void Calculator::decimal_button_slot(){
 
 void Calculator::delete_button_slot(){
     QString txt = display->text();
-    QString newtxt = txt.removeAt(txt.length() - 1);
-    display->setText(newtxt);
+    QString newtxt = txt.mid(0, txt.length() - 1);
+    if(newtxt.length() == 0){
+        display->setText("0");
+    }
+    else{
+        display->setText(newtxt);
+    }
 }
 
 void Calculator::sign_button_slot(){
     if(display->text().isEmpty()){
         display->clear();
     }
-    else if(display->text().at(0) == '-'){
+    else if(display->text().at(0) == '-' || display->text().at(0) == '0'){
         display->setText(display->text());
     }
     else{
@@ -179,6 +198,7 @@ void Calculator::squareroot_slot(){
 }
 void Calculator::clear_button_slot(){
     display->clear();
+    display->setText("0");
 }
 
 double Calculator::Sum(double x, double y){
