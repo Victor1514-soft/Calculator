@@ -75,7 +75,7 @@ Calculator::Calculator(QWidget *parent){
 
 void Calculator::number_slot(){
   QPushButton*number = qobject_cast<QPushButton*>(QObject::sender());
-  if(display->text().size() == 1 && display->text().at(0) == "0" ){
+  if(display->text().size() == 1 && display->text().at(0) == '0' ){
     display->setText(number->text());
   }
   else{
@@ -88,7 +88,7 @@ void Calculator::operation_slot(){
     if(display->text().isEmpty()){
         display->setText(display->text());
     }
-    else if(display->text().at(display->text().length() - 1) == "+" || display->text().at(display->text().length() - 1) == "-" || display->text().at(display->text().length() - 1) == "x" || display->text().at(display->text().length() - 1) == "/" ){
+    else if(display->text().at(display->text().length() - 1) == '+' || display->text().at(display->text().length() - 1) == '-' || display->text().at(display->text().length() - 1) == 'x' || display->text().at(display->text().length() - 1) == '/' ){
         display->setText(display->text());
     }
     else if(display->text().contains(button->text()) && display->text().at(display->text().length() - 1).isDigit()){
