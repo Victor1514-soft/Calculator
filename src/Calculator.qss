@@ -1,3 +1,6 @@
+QWidget#Calculator{
+    background-color : #000000 ;
+}
 QWidget#Calculator QLineEdit#display{
     border: 1px solid gray;
     border-radius: 10px;
@@ -8,16 +11,20 @@ QWidget#Calculator QLineEdit#display{
 }
 
 QWidget#Calculator QPushButton{
-    border: 1px solid gray;
-    border-radius: 10px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);
+    border: 1px #A5A5A5;
+    border-radius: 15px;
+    color: #FFFFFF;
+    background-color: #333333;
     min-width: 50px;
     min-height: 50px
 
 }
 QWidget#Calculator QPushButton:pressed{
-     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #dadbde, stop: 1 #f6f7fa);
+    background-color : #A5A5A5;
 }
-QWidget#Calculator QPushButton:hover{
-    background-color : light gray;
+
+QWidget#Calculator QLineEdit#display{
+    color: #FFFFFF;
+    background-color:#000000;
+    border: #FFFFFF;
 }
