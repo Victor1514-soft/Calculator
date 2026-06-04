@@ -64,11 +64,11 @@ Calculator::Calculator(QWidget *parent){
     QObject::connect(OperationButtons[k],&QPushButton::clicked,this,&operation_slot);
     }
 
-    QObject::connect(ClearButton,&QPushButton::clicked,this,&clear_button_slot);
-    QObject::connect(DeleteButton,&QPushButton::clicked,this,&delete_button_slot);
-    QObject::connect(NegativeSingButton,&QPushButton::clicked,this,&sign_button_slot);
-    QObject::connect(DecimalButton,&QPushButton::clicked,this,&decimal_button_slot);
-    QObject::connect(SquareRootButton,&QPushButton::clicked,this,&squareroot_slot);
+    QObject::connect(ClearButton,&QPushButton::clicked,this,&Calculator::clear_button_slot);
+    QObject::connect(DeleteButton,&QPushButton::clicked,this,&Calculator::delete_button_slot);
+    QObject::connect(NegativeSingButton,&QPushButton::clicked,this,&Calculator::sign_button_slot);
+    QObject::connect(DecimalButton,&QPushButton::clicked,this,&Calculator::decimal_button_slot);
+    QObject::connect(SquareRootButton,&QPushButton::clicked,this,&Calculator::squareroot_slot);
     this->setObjectName("Calculator");
     this->display->setText("0");
 }  
@@ -147,7 +147,7 @@ void Calculator::decimal_button_slot(){
 
 void Calculator::delete_button_slot(){
     QString txt = display->text();
-    QString newtxt = txt.removeAt(txt.length() - 1);
+    QString newtxt = txt.removeLast();
     if(newtxt.length() == 0){
         display->setText("0");
     }
@@ -160,7 +160,7 @@ void Calculator::sign_button_slot(){
     if(display->text().isEmpty()){
         display->clear();
     }
-    else if(display->text().at(0) == '-' || display->text().at(0) == "0"){
+    else if(display->text().at(0) == '-' || display->text().at(0) == '0'){
         display->setText(display->text());
     }
     else{
