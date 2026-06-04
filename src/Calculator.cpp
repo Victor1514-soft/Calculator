@@ -57,11 +57,11 @@ Calculator::Calculator(QWidget *parent){
 
     //Buttons Functionalities
     for(int j = 0; j < 10; j++){
-    QObject::connect(NumberButtons[j],&QPushButton::clicked,this,&number_slot);
+    QObject::connect(NumberButtons[j],&QPushButton::clicked,this,&Calculator::number_slot);
     }
 
     for(int k = 0; k < 5; k++){
-    QObject::connect(OperationButtons[k],&QPushButton::clicked,this,&operation_slot);
+    QObject::connect(OperationButtons[k],&QPushButton::clicked,this,&Calculator::operation_slot);
     }
 
     QObject::connect(ClearButton,&QPushButton::clicked,this,&Calculator::clear_button_slot);
@@ -105,7 +105,7 @@ void Calculator::operation_slot(){
         QString result;
         int pos;
         for(int w = 0; w < txt.length(); ++w){
-            if(txt[w] == "+" || txt[w] == "-" || txt[w] == "x" || txt[w] == "/"){
+            if(txt[w] == '+' || txt[w] == '-' || txt[w] == 'x' || txt[w] == '/'){
                 symbol = txt[w];
                 pos = w;
                 break;
@@ -147,7 +147,7 @@ void Calculator::decimal_button_slot(){
 
 void Calculator::delete_button_slot(){
     QString txt = display->text();
-    QString newtxt = txt.removeLast();
+    QString newtxt = txt.mid(0, txt.length() - 1);
     if(newtxt.length() == 0){
         display->setText("0");
     }
