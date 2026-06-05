@@ -30,7 +30,12 @@ This project aims to evolve from a basic calculator into a sophisticated mathema
 - C++11 or higher
 - CMake 3.10+
 - A C++ compiler (GCC, Clang, or MSVC)
+- Qt6 (with Widgets module)
 
+### Installing Qt6:
+- **Ubuntu/Debian**: `sudo apt install qt6-base-dev`
+- **macOS**: `brew install qt6`
+- **Windows**: Download from https://www.qt.io/download
 ## Build Instructions
 
 ### Prerequisites
