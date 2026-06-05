@@ -2,12 +2,28 @@
 
 A high-performance calculator application built with C++.
 
+## Overview
+
+This project aims to evolve from a basic calculator into a sophisticated mathematical engine capable of solving differential equations. The long-term goal is to scale the application to handle advanced mathematical operations and symbolic computation, enabling users to solve complex differential equations and perform high-level mathematical analysis.
+
 ## Features
 
 - Fast and efficient computation
 - User-friendly interface
 - Cross-platform compatibility
 - Well-structured C++ codebase
+
+## Project Goals
+
+### Current Phase
+- Basic arithmetic operations
+- High-performance computation
+
+### Future Roadmap
+- ➡️ Advanced mathematical functions
+- ➡️ Symbolic computation
+- ➡️ **Differential equations solver** (Primary Goal)
+- ➡️ Extended mathematical analysis tools
 
 ## Requirements
 
