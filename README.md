@@ -20,10 +20,10 @@ This project aims to evolve from a basic calculator into a sophisticated mathema
 - High-performance computation
 
 ### Future Roadmap
-- ➡️ Advanced mathematical functions
-- ➡️ Symbolic computation
-- ➡️ **Differential equations solver** (Primary Goal)
-- ➡️ Extended mathematical analysis tools
+-  Advanced mathematical functions
+-  Symbolic computation
+- **Differential equations solver** (Primary Goal)
+- Extended mathematical analysis tools
 
 ## Requirements
 
